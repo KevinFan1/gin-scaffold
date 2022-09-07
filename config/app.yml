@@ -1,0 +1,59 @@
+# system worker base configuration
+sys:
+  project_name: "sample"
+  max_worker: 1000
+  max_queue: 100000
+  debug: true
+  # 允许访问的ip
+  allowed_host: ["127.0.0.1"]
+  # 项目加密字段
+  secret_key: l)wtsz8j92mz$d4mhio(1o_!64ivagf$_c#n5r&cuh^=g_&1(=
+  api_prefix: /api/v1
+
+
+# redis configuration
+redis:
+  host: 192.168.31.127
+  port: 6379
+  password: 123456
+  timeout: 200
+  max_active: 30
+  max_idle: 30
+  pool_size: 20
+  db: 10
+
+# system log configuration
+log:
+  path: ./log/
+  prefix: demo
+  suffix: log
+  format: 20060102
+  # 保存的文件位置
+  normal_log: info
+  error_log: error
+  # 日志大小,单位mb
+  maxsize: 1
+  # 备份个数
+  backups: 5
+  # 保留天数
+  age: 30
+  # 是否压缩、归档
+  compress: true
+
+# celery configuration [not use now]
+celery:
+  backend: redis://:123456@192.168.31.127:6379/0
+  broker: amqp://user:123456@192.168.31.127:5672//
+
+# rabbitmq configuration
+rabbit:
+  uri: amqp://user:123456@192.168.31.127:5672//
+
+mysql:
+  username: root
+  password: 123456
+  host: 127.0.0.1
+  port: 3306
+  db_ame: test
+  show_log: false
+  disable_constraint: true

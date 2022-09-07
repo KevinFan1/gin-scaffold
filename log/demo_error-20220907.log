@@ -1,0 +1,432 @@
+2022-09-07T17:00:11.185+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 64 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x10138fbe0, 0x101ac63a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x1013300a0?, 0x140005a1be0?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:133 +0xac
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x140009ea1a0, 0x14000644300)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x101ae3ee0?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x14000644300)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x140009e6a20, 0x14000644300)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x14000644300)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x14000644300)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x14000644300)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000644300)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000644300)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000583a00, 0x14000644300)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000583a00, {0x101477150?, 0x140006502a0}, 0x14000644200)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x14000a3e720?}, {0x101477150, 0x140006502a0}, 0x14000644200)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x14000617c20, {0x101477d98, 0x14000a3e630})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
+2022-09-07T17:01:26.440+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 116 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x103997be0, 0x1040ce3a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x1039380a0?, 0x140002ea2e0?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:133 +0xac
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x1400063a9c0, 0x140009a2100)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x14000100000?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x140009a2100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x1400093d7a0, 0x140009a2100)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x140009a2100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x140009a2100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x140009a2100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140009a2100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x140009a2100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x1400063a4e0, 0x140009a2100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x1400063a4e0, {0x103a7f150?, 0x140005961c0}, 0x140009a2000)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x140009754a0?}, {0x103a7f150, 0x140005961c0}, 0x140009a2000)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x14000675180, {0x103a7fd98, 0x140009753b0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
+2022-09-07T17:01:52.037+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 10 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x10507fbe0, 0x1057b63a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x1050200a0?, 0x14000528e80?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:133 +0xac
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x14000583d40, 0x140002f2500)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x1400006ed80?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x140002f2500)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x14000a51b00, 0x140002f2500)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x140002f2500)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x140002f2500)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x140002f2500)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140002f2500)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x140002f2500)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000583860, 0x140002f2500)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000583860, {0x105167150?, 0x14000134ee0}, 0x140002f2400)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x14000a7f800?}, {0x105167150, 0x14000134ee0}, 0x140002f2400)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x1400031d5e0, {0x105167d98, 0x14000a7f710})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
+2022-09-07T17:02:40.050+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 130 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x105a9bbe0, 0x1061d23a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x105a3c0a0?, 0x140002deb80?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:135 +0xf0
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x14000103a00, 0x14000360800)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x140002c2480?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x14000360800)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x140009d07e0, 0x14000360800)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x14000360800)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x14000360800)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x14000360800)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000360800)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000360800)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000103380, 0x14000360800)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000103380, {0x105b83150?, 0x14000902ee0}, 0x14000360700)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x140009fa4e0?}, {0x105b83150, 0x14000902ee0}, 0x14000360700)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x140009fe000, {0x105b83d98, 0x140009fa3f0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
+2022-09-07T17:03:20.368+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 55 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x104ca3be0, 0x1053da3a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x104c440a0?, 0x140005b2ce0?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:133 +0xac
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x14000103380, 0x14000a42100)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x1400019d200?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x14000a42100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x14000a07b90, 0x14000a42100)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x14000a42100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x14000a42100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x14000a42100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000a42100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000a42100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000102ea0, 0x14000a42100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000102ea0, {0x104d8b160?, 0x140008b61c0}, 0x14000a42000)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x14000a2f890?}, {0x104d8b160, 0x140008b61c0}, 0x14000a42000)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x140005ff220, {0x104d8bda8, 0x14000a2f7a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
+2022-09-07T17:03:35.211+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 100 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x103bebbe0, 0x1043223a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x103b8c0a0?, 0x140002de8c0?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:133 +0xac
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x14000003d40, 0x14000a18100)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x14000600000?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x14000a18100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x140009139e0, 0x14000a18100)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x14000a18100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x14000a18100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x14000a18100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000a18100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000a18100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000003860, 0x14000a18100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000003860, {0x103cd3160?, 0x1400095c1c0}, 0x14000a18000)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x14000a056e0?}, {0x103cd3160, 0x1400095c1c0}, 0x14000a18000)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x140008cd180, {0x103cd3da8, 0x14000a055f0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
+2022-09-07T17:03:47.807+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 40 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x104c53be0, 0x10538a3a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x104bf40a0?, 0x14000122080?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:134 +0xf8
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x1400053e820, 0x1400098c100)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x1400006e900?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x1400098c100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x14000926c90, 0x1400098c100)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x1400098c100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x1400098c100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x1400098c100)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x1400098c100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x1400098c100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x1400053e340, 0x1400098c100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x1400053e340, {0x104d3b160?, 0x1400097c1c0}, 0x1400098c000)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x14000980990?}, {0x104d3b160, 0x1400097c1c0}, 0x1400098c000)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x1400056ad20, {0x104d3bda8, 0x140009808a0})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
+2022-09-07T17:05:14.547+0800	ERROR	middleware/error.go:19	| url [/api/v1/user/detail?user_id=4] | method | [GET] | error [runtime error: invalid memory address or nil pointer dereference] | stack [goroutine 102 [running]:
+runtime/debug.Stack()
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/debug/stack.go:24 +0x68
+code/gin-scaffold/middleware.Error.func1.1()
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:19 +0x6c
+panic({0x102e67640, 0x103595e80})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/runtime/panic.go:838 +0x204
+code/gin-scaffold/middleware.JWTMiddleWareGenerator.func4({0x102e07e40?, 0x14000134ae0?}, 0x2?)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/jwt.go:132 +0x100
+github.com/appleboy/gin-jwt/v2.(*GinJWTMiddleware).middlewareImpl(0x14000003a00, 0x1400030c200)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:443 +0x198
+code/gin-scaffold/middleware.JWTMiddleware.func1(0x14000680000?)
+	/Users/kevin/go/pkg/mod/github.com/appleboy/gin-jwt/v2@v2.8.0/auth_jwt.go:410 +0x2c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.ActionLog.func1(0x1400030c200)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/action_log.go:31 +0x130
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/ulule/limiter/v3/drivers/middleware/gin.(*Middleware).Handle(0x14000308a50, 0x1400030c200)
+	/Users/kevin/go/pkg/mod/github.com/ulule/limiter/v3@v3.8.0/drivers/middleware/gin/middleware.go:64 +0x1d8
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.IpLimiter.func1(0x1400030c200)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/ip_limiter.go:29 +0x104
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.Error.func1(0x1400030c200)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/error.go:34 +0x6c
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+code/gin-scaffold/middleware.CORS.func1(0x1400030c200)
+	/Users/kevin/go/src/code/gin-scaffold/middleware/cors.go:24 +0x158
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x1400030c200)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/recovery.go:101 +0x80
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.LoggerWithConfig.func1(0x1400030c200)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/logger.go:240 +0xb0
+github.com/gin-gonic/gin.(*Context).Next(...)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/context.go:173
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x1400075e4e0, 0x1400030c200)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:616 +0x568
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0x1400075e4e0, {0x102f4e4b0?, 0x14000ac60e0}, 0x1400030c100)
+	/Users/kevin/go/pkg/mod/github.com/gin-gonic/gin@v1.8.1/gin.go:572 +0x1d8
+net/http.serverHandler.ServeHTTP({0x14000abe780?}, {0x102f4e4b0, 0x14000ac60e0}, 0x1400030c100)
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:2916 +0x3fc
+net/http.(*conn).serve(0x140004306e0, {0x102f4f0f8, 0x14000abe690})
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:1966 +0x56c
+created by net/http.(*Server).Serve
+	/opt/homebrew/Cellar/go/1.18.3/libexec/src/net/http/server.go:3071 +0x450
+] |
