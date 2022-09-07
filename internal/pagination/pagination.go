@@ -1,8 +1,10 @@
 package pagination
 
 import (
+	"code/gin-scaffold/schemas"
 	"errors"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	"math"
 )
@@ -26,7 +28,7 @@ type Paginator struct {
 	HasNext     bool  `json:"has_next"`
 }
 
-func Paging(p *Params, T any) (*Paginator, error) {
+func Paging(p *Params, resultVal any) (*Paginator, error) {
 	maxSize := 20
 	db := p.DB
 
@@ -54,13 +56,13 @@ func Paging(p *Params, T any) (*Paginator, error) {
 	done := make(chan bool, 1)
 	var count int64
 	var offset int
-	go getCount(db, T, done, &count)
+	go getCount(db, resultVal, done, &count)
 	<-done
 
 	paginator := &Paginator{
 		TotalPage:   int(math.Ceil(float64(count) / float64(p.Size))),
 		TotalRecord: count,
-		Items:       T,
+		Items:       resultVal,
 		CurrentPage: p.Page,
 		HasPre:      false,
 		HasNext:     false,
@@ -72,7 +74,7 @@ func Paging(p *Params, T any) (*Paginator, error) {
 
 	offset = (p.Page - 1) * p.Size
 
-	db.Limit(p.Size).Offset(offset).Find(T)
+	db.Limit(p.Size).Offset(offset).Find(resultVal)
 	// 判断是否有前一页
 	if p.Page > 1 {
 		paginator.PrePage = p.Page - 1
@@ -97,4 +99,17 @@ func Paging(p *Params, T any) (*Paginator, error) {
 func getCount(db *gorm.DB, T any, done chan bool, count *int64) {
 	db.Model(T).Count(count)
 	done <- true
+}
+
+func Scan[T any](c *gin.Context, db *gorm.DB, result []T) (paginator *Paginator, err error) {
+	var params schemas.QueryPaginatorParams
+	err = c.ShouldBindQuery(&params)
+	paginator, err = Paging(&Params{
+		DB:      db,
+		Page:    params.Page,
+		Size:    params.Size,
+		OrderBy: []string{},
+		ShowSQL: false,
+	}, &result)
+	return
 }

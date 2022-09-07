@@ -42,4 +42,5 @@ func Init(r *gin.Engine) {
 	//添加需要校验权限的router
 	UserRouterInit(v1Group)
 	CasbinRouterInit(v1Group)
+	RecordsRouterInit(v1Group)
 }

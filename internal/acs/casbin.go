@@ -4,7 +4,6 @@ import (
 	"code/gin-scaffold/internal/global"
 	"code/gin-scaffold/models"
 	"context"
-	"fmt"
 	"github.com/casbin/casbin/v2"
 	gormadapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/go-redis/redis/v8"
@@ -40,7 +39,6 @@ func CheckPermission(code, path, method string) bool {
 	ctx := context.Background()
 
 	fieldKey := models.CasbinRuleFieldKey(code, path, method)
-	fmt.Println(fieldKey)
 	val, err := redisClient.HGet(ctx, cacheKey, fieldKey).Result()
 
 	if err == redis.Nil {

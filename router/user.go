@@ -6,13 +6,13 @@ import (
 )
 
 func UserRouterInit(router *gin.RouterGroup) {
-	userGroup := router.Group("/user")
+	group := router.Group("/user")
 	{
-		userGroup.GET("", controller.UserListController)
-		userGroup.POST("", controller.UserAdditionController)
+		group.GET("", controller.UserListController)
+		group.POST("", controller.UserAdditionController)
 
-		userGroup.GET("/detail", controller.UserDetailController)
-		userGroup.GET("/info", controller.UserInfoController)
+		group.GET("/detail", controller.UserDetailController)
+		group.GET("/info", controller.UserInfoController)
 
 	}
 }

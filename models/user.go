@@ -13,7 +13,7 @@ import (
 type User struct {
 	BaseModel
 	Username string `gorm:"column:username;type:varchar(32);comment:用户名;not null;default:" json:"username"`
-	Password string `gorm:"column:password;type:varchar(255);comment:密码;not null;default:;" json:"password"`
+	Password string `gorm:"column:password;type:varchar(255);comment:密码;not null;default:;" json:"-"`
 	RoleId   uint   `gorm:"column:role_id;comment:角色id;" json:"role_id"`
 	Role     *Role  `gorm:"foreignKey:RoleId;" json:"role,omitempty"`
 }

@@ -10,4 +10,6 @@ var (
 
 	CreateCasbinRuleController = v1.CreateCasbinRule
 	DeleteCasbinRuleController = v1.DeleteCasbinRule
+
+	LoginRecordListController = v1.LoginRecordList
 )

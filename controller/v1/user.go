@@ -12,29 +12,14 @@ import (
 
 // UserList 获取用户列表
 func UserList(c *gin.Context) {
-	var err error
-	var params schemas.QueryPaginatorParams
-	err = c.ShouldBindQuery(&params)
-	if err != nil {
-		vo.FailWithMsg(c, err.Error())
-		return
-	}
-
 	//用户列表
 	var users []models.User
-	paginator, err := pagination.Paging(&pagination.Params{
-		DB:      global.DB.Omit("Password").Preload("Role"),
-		Page:    params.Page,
-		Size:    params.Size,
-		OrderBy: []string{},
-		ShowSQL: false,
-	}, &users)
-
+	db := global.DB.Omit("Password").Preload("Role")
+	paginator, err := pagination.Scan(c, db, users)
 	if err != nil {
 		vo.FailWithMsg(c, err.Error())
 		return
 	}
-
 	vo.OkWithMsg(c, "查询用户列表成功", paginator)
 }
 
