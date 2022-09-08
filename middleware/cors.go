@@ -1,7 +1,9 @@
 package middleware
 
 import (
+	"context"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,6 +11,9 @@ import (
 // CORS 跨域处理
 func CORS() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		// 计算总消耗时间
+		c.Request = c.Request.WithContext(context.WithValue(c.Request.Context(), "start_time", time.Now().UnixMilli()))
+
 		method := c.Request.Method
 		origin := c.Request.Header.Get("Origin")
 

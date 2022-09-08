@@ -2,9 +2,10 @@ package settings
 
 import (
 	"code/gin-scaffold/config"
-	"log"
-
 	"gopkg.in/yaml.v2"
+	"log"
+	"os"
+	"path"
 
 	"io/ioutil"
 )
@@ -21,7 +22,9 @@ type Set struct {
 var Setting = Set{}
 
 func SetUp() {
-	fileName := "./config/app.yml"
+	projectDir, _ := os.Getwd()
+	fileName := path.Join(projectDir, "config", "app.yml")
+
 	file, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		log.Fatal("无法读取app yaml文件 file:", err)

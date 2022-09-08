@@ -17,7 +17,11 @@ func StringInSlice(s string, lst []string) bool {
 
 // GetCurrentUser 获取当前request的用户
 func GetCurrentUser(c *gin.Context) *models.User {
-	return c.Request.Context().Value("user").(*models.User)
+	data := c.Request.Context().Value("user")
+	if data == nil {
+		return nil
+	}
+	return data.(*models.User)
 }
 
 // LogDecorator 装饰器记录操作日志记录

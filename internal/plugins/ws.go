@@ -8,6 +8,7 @@ import (
 
 var upGrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
+		// todo 权限校验
 		return true
 	},
 }

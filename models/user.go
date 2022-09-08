@@ -5,17 +5,21 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/go-redis/redis/v8"
 	"time"
+
+	"github.com/go-redis/redis/v8"
 )
 
 // User todo: password encrypt
 type User struct {
 	BaseModel
-	Username string `gorm:"column:username;type:varchar(32);comment:用户名;not null;default:" json:"username"`
-	Password string `gorm:"column:password;type:varchar(255);comment:密码;not null;default:;" json:"-"`
-	RoleId   uint   `gorm:"column:role_id;comment:角色id;" json:"role_id"`
-	Role     *Role  `gorm:"foreignKey:RoleId;" json:"role,omitempty"`
+	Username  string   `json:"username" gorm:"column:username;type:varchar(32);comment:用户名;not null;default:"`
+	Password  string   `json:"-" gorm:"column:password;type:varchar(255);comment:密码;not null;default:;"`
+	RoleId    uint     `json:"-" gorm:"column:role_id;comment:角色id;"`
+	Role      *Role    `json:"role,omitempty" gorm:"foreignKey:RoleId;"`
+	LastLogin JSONTime `json:"last_login" gorm:"column:last_login;comment:最后登录时间"`
+	IsDisable bool     `json:"is_disable" gorm:"column:is_disable;type:tinyint;comment:是否禁用;default:0;"`
+	IsDel     bool     `json:"is_del" gorm:"column:is_del;type:tinyint;comment:是否删除;default:0;"`
 }
 
 func (u User) TableName() string {

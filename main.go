@@ -30,14 +30,13 @@ func main() {
 
 	r := gin.Default()
 	models.AutoMigrate()
-
 	middleware.Init(r)
 	router.Init(r)
 	r.GET("/ping", plugins.Ping)
-
 	models.AutoMigrate()
 	err := r.Run(":5000")
 	if err != nil {
 		global.Logger.Fatal("Fail to start project", err)
 	}
+
 }

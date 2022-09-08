@@ -2,12 +2,16 @@ package router
 
 import (
 	"code/gin-scaffold/internal/settings"
+	"code/gin-scaffold/internal/utils"
 	"code/gin-scaffold/internal/vo"
-	"code/gin-scaffold/middleware"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
+
+func Index(c *gin.Context) {
+	c.String(http.StatusOK, "Hello World! :)")
+}
 
 func Init(r *gin.Engine) {
 
@@ -15,9 +19,12 @@ func Init(r *gin.Engine) {
 		vo.Ok(c, nil)
 	})
 
-	r.GET("/index", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello World! :)")
+	r.GET("/index", utils.LogDecorator(Index, "首页信息"))
+
+	r.POST("/log", func(c *gin.Context) {
+		c.String(http.StatusOK, "OK")
 	})
+
 	r.GET("/apis", func(c *gin.Context) {
 		var data []map[string]string
 		for _, r := range r.Routes() {
@@ -34,10 +41,10 @@ func Init(r *gin.Engine) {
 	prefix := settings.Setting.SystemBaseConfig.ApiPrefix
 
 	v1Group := r.Group(prefix)
-	v1Group.POST("/login", middleware.JWTMiddleWareGenerator().LoginHandler)
+	v1Group.POST("/login", utils.JWTMiddleWareGenerator().LoginHandler)
 
 	// 调用jwt和casbin中间件
-	v1Group.Use(middleware.JWTMiddleware())
+	v1Group.Use(utils.JWTMiddleware())
 
 	//添加需要校验权限的router
 	UserRouterInit(v1Group)

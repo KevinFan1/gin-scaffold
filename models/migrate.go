@@ -5,7 +5,9 @@ import (
 )
 
 func AutoMigrate() {
-	err := global.DB.AutoMigrate(&Role{}, &User{}, &LoginRecord{})
+	err := global.DB.AutoMigrate(
+		&Role{}, &User{}, &LoginRecord{}, &OperationRecord{},
+	)
 	if err != nil {
 		global.Logger.Panicf("自动迁移失败,err: %v", err)
 	}

@@ -1,21 +1,15 @@
 package v1
 
 import (
-	"code/gin-scaffold/internal/global"
-	"code/gin-scaffold/internal/pagination"
 	"code/gin-scaffold/internal/utils"
 	"code/gin-scaffold/internal/vo"
-	"code/gin-scaffold/models"
-	"code/gin-scaffold/schemas"
 	"github.com/gin-gonic/gin"
 )
 
 // UserList 获取用户列表
 func UserList(c *gin.Context) {
 	//用户列表
-	var users []models.User
-	db := global.DB.Omit("Password").Preload("Role")
-	paginator, err := pagination.Scan(c, db, users)
+	paginator, err := userService.List(c)
 	if err != nil {
 		vo.FailWithMsg(c, err.Error())
 		return
@@ -25,8 +19,7 @@ func UserList(c *gin.Context) {
 
 // UserDetail 根据ID获取用户详情
 func UserDetail(c *gin.Context) {
-	userId := c.Query("user_id")
-	user, _ := models.GetUserById(userId)
+	user := userService.Detail(c)
 	vo.Ok(c, user)
 }
 
@@ -36,20 +29,9 @@ func UserInfo(c *gin.Context) {
 	vo.Ok(c, user)
 }
 
+// UserAddition 添加用户
 func UserAddition(c *gin.Context) {
-	var userDto schemas.UserAddDto
-
-	err := c.ShouldBindJSON(&userDto)
-	if err != nil {
-		vo.FailWithMsg(c, err.Error())
-		return
-	}
-
-	err = global.DB.Create(&models.User{
-		Username: userDto.Username,
-		Password: userDto.Password,
-		RoleId:   userDto.RoleId,
-	}).Error
+	err := userService.Create(c)
 	if err != nil {
 		vo.FailWithMsg(c, err.Error())
 		return

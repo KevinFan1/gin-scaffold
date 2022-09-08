@@ -8,16 +8,19 @@ import (
 	gormadapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/go-redis/redis/v8"
 	"log"
+	"os"
+	"path"
 )
 
 func Setup() {
-
+	projectDir, _ := os.Getwd()
 	adapter, err := gormadapter.NewAdapterByDBWithCustomTable(global.DB, &models.CasbinRule{}, "t_casbin_rule")
 	if err != nil {
 		log.Panicf("加载adapter失败,%v\n", err)
 	}
 
-	global.Enforcer, err = casbin.NewEnforcer("internal/acs/rbac_model.conf", adapter)
+	confPath := path.Join(projectDir, "internal", "acs", "rbac_model.conf")
+	global.Enforcer, err = casbin.NewEnforcer(confPath, adapter)
 	if err != nil {
 		log.Panicf("加载rbac model失败,%v\n", err)
 	}
